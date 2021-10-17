@@ -171,11 +171,15 @@ public class Runner<menu, isMenuOn> {
                                 int professorId = subMenuScan3__createCurse.nextInt();
                                 System.out.println("Type the ClassRoom to assign");
                                 int classRoom = subMenuScan3__createCurse.nextInt();
-                                unal.setAddCourse(
-                                        nameOfCourse,
-                                        unal.getProfessorsList().get(professorId-1),
-                                        classRoom
-                                );
+                                if(professorId > 0 && professorId <= unal.getProfessorsList().size()){
+                                    unal.setAddCourse(
+                                            nameOfCourse,
+                                            unal.getProfessorsList().get(professorId-1),
+                                            classRoom
+                                    );
+                                }else {
+                                    System.out.println("Invalid Professor ID");
+                                }
                                 break;
                             case 2:
                                 Scanner subMenuScan3__addStudent = new Scanner(System.in);
